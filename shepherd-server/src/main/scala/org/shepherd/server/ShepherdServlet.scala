@@ -54,7 +54,7 @@ class ShepherdServlet(dataStore: DataStore, accessManager: AccessManager)
     if (accessManager.checkAuthCookie(request.getCookies)) {
       fn()
     } else {
-      Forbidden()
+      throw new AccessControlException("Access Denied!")
     }
   }
 

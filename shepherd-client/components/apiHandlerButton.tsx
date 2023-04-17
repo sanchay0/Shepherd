@@ -20,15 +20,23 @@ export default function ApiHandlerButton({params}: {params: FormData}) {
     }
 
     const fetchData = async () => {
-        const res = await fetch(`/api/model?${queryParams.toString()}`);
-        const json = await res.json();
-        setData(json);
+        try {
+            const res = await fetch(`/api/model?${queryParams.toString()}`);
+            const json = await res.json();
+            setData(json);
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
     };
 
     return (
         <div>
-            <button onClick={fetchData}>Fetch Data</button>
+            <button
+                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                onClick={fetchData}>Fetch Data</button>
+            <div className="flex w-full justify-center pt-8">
             {data && data.msg}
+            </div>
         </div>
     );
 }
