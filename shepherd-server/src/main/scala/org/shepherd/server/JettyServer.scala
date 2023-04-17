@@ -1,7 +1,10 @@
+package org.shepherd.server
+
 import org.eclipse.jetty.server._
-import org.eclipse.jetty.server.handler.ResourceHandler
+import org.eclipse.jetty.server.handler.{HandlerCollection, ResourceHandler}
 import org.eclipse.jetty.servlet.{DefaultServlet, ServletContextHandler}
 import org.eclipse.jetty.util.resource.Resource
+import org.shepherd.Logging
 
 import java.io.File
 import java.net.InetAddress
@@ -19,19 +22,11 @@ class JettyServer(var host: String, var port: Int) extends Logging {
 
   server.setConnectors(Array(connector))
 
-  val context = new ServletContextHandler(ServletContextHandler.SESSIONS)
+  val context = new ServletContextHandler()
   context.setContextPath("/")
-
-  val resourceHandler = new ResourceHandler
-  resourceHandler.setDirectoriesListed(false)
-  resourceHandler.setWelcomeFiles(Array("index.html"))
-  resourceHandler.setBaseResource(Resource.newResource(new File("out").getAbsolutePath))
-
-  context.setBaseResource(resourceHandler.getBaseResource)
-  context.setWelcomeFiles(resourceHandler.getWelcomeFiles)
-  context.setHandler(resourceHandler)
-
   context.addServlet(classOf[DefaultServlet], "/")
+  context.setWelcomeFiles(Array("index.html"))
+  context.setBaseResource(Resource.newResource(new File("out").getAbsolutePath))
 
   server.setHandler(context)
 

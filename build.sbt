@@ -1,6 +1,7 @@
 lazy val commonSettings = Seq(
   version := "0.1.0-SNAPSHOT",
-  scalaVersion := "2.13.10"
+  scalaVersion := "2.13.10",
+  organization := "org.shepherd"
 )
 
 lazy val core = (project in file("shepherd-core"))
@@ -15,9 +16,7 @@ lazy val server = (project in file("shepherd-server"))
   .dependsOn(core)
   .settings(
     commonSettings,
-    libraryDependencies ++= Dependencies.jetty ++ Seq(
-      Dependencies.scalatra
-    )
+    libraryDependencies ++= Dependencies.jetty ++ Dependencies.scalatra
   )
 
 lazy val root = (project in file("."))

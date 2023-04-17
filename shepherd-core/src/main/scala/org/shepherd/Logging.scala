@@ -1,3 +1,5 @@
+package org.shepherd
+
 import org.slf4j.LoggerFactory
 
 trait Logging {
