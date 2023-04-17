@@ -17,6 +17,7 @@ class Server extends Logging {
     server = new JettyServer(host, port)
 
     val dataStore = new DataStore
+    val accessManager = new AccessManager
 
     // mount API server handler
     server.context.addEventListener(
@@ -31,12 +32,12 @@ class Server extends Logging {
             val context = sce.getServletContext
             context.setInitParameter(org.scalatra.EnvironmentKey, "production")
 
-            val shepherdServlet = new ShepherdServlet(dataStore)
+            val shepherdServlet = new ShepherdServlet(dataStore, accessManager)
             mount(context, shepherdServlet, "/api/*")
             info("Mounted Shepherd API at /api/*")
           } catch {
             case e: Throwable =>
-              error("Exception thrown while initializing server", e)
+              error1("Exception thrown while initializing server", e)
               sys.exit(1)
           }
         }

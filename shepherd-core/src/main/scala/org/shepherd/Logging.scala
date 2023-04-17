@@ -32,11 +32,11 @@ trait Logging {
     logger.warn(message.toString, t)
   }
 
-  def error(message: => Any, t: Throwable): Unit = {
+  def error1(message: => Any, t: Throwable): Unit = {
     logger.error(message.toString, t)
   }
 
-  def error(message: => Any): Unit = {
+  def error1(message: => Any): Unit = {
     logger.error(message.toString)
   }
 }
