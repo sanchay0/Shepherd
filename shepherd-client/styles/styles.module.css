@@ -1,0 +1,30 @@
+.container > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    pointer-events: none;
+    justify-content: start !important;
+    font-family: 'Kanit', sans-serif;
+    line-height: 0px;
+    text-transform: uppercase;
+}
+
+.anchor {
+    border-bottom: 1px solid #fff;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;   /* Height of the footer */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: 300;
+    color: #fff;
+}
