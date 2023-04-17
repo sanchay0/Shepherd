@@ -1,0 +1,12 @@
+ISO Code,Description,Min Years Experience Required,ISO Class Risk Tier
+ISO_10,Carpentry,2,2
+ISO_11,Painting,2,2
+ISO_12,Masonry,5,5
+ISO_13,Roofing,5,6
+ISO_14,Plumbing,4,3
+ISO_15,Concrete,5,7
+ISO_16,Crane Work,8,9
+ISO_17,Demolition,15,REJECTED
+ISO_18,Landscaping,3,4
+ISO_19,Railroad,3,6
+ISO_20,Mining,15,REJECTED

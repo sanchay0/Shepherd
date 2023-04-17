@@ -33,6 +33,7 @@ class Server extends Logging {
 
             val shepherdServlet = new ShepherdServlet(dataStore)
             mount(context, shepherdServlet, "/api/*")
+            info("Mounted Shepherd API at /api/*")
           } catch {
             case e: Throwable =>
               error("Exception thrown while initializing server", e)

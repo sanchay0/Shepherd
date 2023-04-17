@@ -25,7 +25,11 @@ class ShepherdServlet(dataStore: DataStore)
   }
 
   get("/test") {
-    Map("msg" -> "Hello!")
+    ResponseMessage("hello!")
+  }
+
+  override def shutdown(): Unit = {
+    dataStore.shutdown()
   }
 
 }

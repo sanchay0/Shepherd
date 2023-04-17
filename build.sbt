@@ -16,7 +16,9 @@ lazy val server = (project in file("shepherd-server"))
   .dependsOn(core)
   .settings(
     commonSettings,
-    libraryDependencies ++= Dependencies.jetty ++ Dependencies.scalatra
+    libraryDependencies ++= Dependencies.jetty ++ Dependencies.scalatra ++ Seq(
+      Dependencies.guava
+    )
   )
 
 lazy val root = (project in file("."))
