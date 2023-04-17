@@ -26,7 +26,7 @@ class JettyServer(var host: String, var port: Int) extends Logging {
   context.setContextPath("/")
   context.addServlet(classOf[DefaultServlet], "/")
   context.setWelcomeFiles(Array("index.html"))
-  context.setBaseResource(Resource.newResource(new File("out").getAbsolutePath))
+  context.setBaseResource(Resource.newResource(new File("shepherd-client/out").getAbsolutePath))
 
   server.setHandler(context)
 
