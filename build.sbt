@@ -4,6 +4,14 @@ lazy val commonSettings = Seq(
   organization := "org.shepherd"
 )
 
+lazy val npmBuildTask = taskKey[Unit]("Execute the npm build command to build the ui")
+
+npmBuildTask := {
+  "cd shepherd-client/ && npm run build && npm run export"
+}
+
+run := (Compile / run).dependsOn(npmBuildTask).evaluated
+
 lazy val core = (project in file("shepherd-core"))
   .settings(
     commonSettings,
