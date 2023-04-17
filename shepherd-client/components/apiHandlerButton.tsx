@@ -5,10 +5,10 @@ interface Response {
 }
 
 export interface FormData {
-    isoCode: string;
-    yearsOfExperience: number;
+    iso: string;
+    yoe: number;
     state: string;
-    techUsageGrade: number;
+    grade: number;
 }
 
 export default function ApiHandlerButton({params}: {params: FormData}) {
@@ -20,7 +20,7 @@ export default function ApiHandlerButton({params}: {params: FormData}) {
     }
 
     const fetchData = async () => {
-        const res = await fetch(`/api/model?${queryParams.toString}`);
+        const res = await fetch(`/api/model?${queryParams.toString()}`);
         const json = await res.json();
         setData(json);
     };

@@ -34,12 +34,12 @@ class DataStore extends Logging {
   // state risk model
   stateData.drop(1) foreach { line =>
     val row = line.split(",")
-    val name = row(0).asInstanceOf[Any]
-    val abb = row(1)
+    val name = row(0)
+    val abb = row(1).asInstanceOf[Any]
     val stateRiskTier = row(2).toInt.asInstanceOf[Any]
 
-    stateRiskModel.put(abb, "name", name)
-    stateRiskModel.put(abb, "risk_tier", stateRiskTier)
+    stateRiskModel.put(name, "abb", abb)
+    stateRiskModel.put(name, "risk_tier", stateRiskTier)
   }
 
   // safetech risk  model
@@ -66,7 +66,7 @@ class DataStore extends Logging {
 
     val isoCode = someIsoCode.get.toUpperCase
     val yoe = someYearsOfExpereince.get
-    val state = someState.get.toUpperCase
+    val state = someState.get
     val techGrade = someTechGrade.get
 
     val requiredExperience = isoClassRiskModel.get(isoCode, "min_experience")
@@ -89,8 +89,8 @@ class DataStore extends Logging {
       throw new ArithmeticException(s"Sorry! A rejection has been encountered for $techGrade tech usage grade.")
 
     // final result
-    if ((state == "NY" && description.asInstanceOf[String].toLowerCase == "crane work") ||
-      (state == "CO" && description.asInstanceOf[String].toLowerCase == "railroad"))
+    if ((state == "New York" && description.asInstanceOf[String].toLowerCase == "crane work") ||
+      (state == "Colorado" && description.asInstanceOf[String].toLowerCase == "railroad"))
       return "REFERRED"
 
     (isoRiskTier.asInstanceOf[String].toFloat + stateRiskTier.asInstanceOf[Integer]) *
