@@ -5,10 +5,10 @@ import ApiHandlerButton, { FormData } from '../components/apiHandlerButton';
 
 export default function Form() {
     const [formData, setFormData] = useState<FormData>({
-        isoCode: "",
-        yearsOfExperience: 0,
+        iso: "",
+        yoe: 0,
         state: "",
-        techUsageGrade: 0,
+        grade: 0,
     });
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +23,7 @@ export default function Form() {
                     ISO Code:
                     <input
                         type="text"
-                        value={formData.isoCode}
+                        value={formData.iso}
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
@@ -38,7 +38,7 @@ export default function Form() {
                     Years of Experience:
                     <input
                         type="number"
-                        value={formData.yearsOfExperience}
+                        value={formData.yoe}
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
@@ -67,7 +67,7 @@ export default function Form() {
                     Tech Usage Grade:
                     <input
                         type="number"
-                        value={formData.techUsageGrade}
+                        value={formData.grade}
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
