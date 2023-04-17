@@ -27,7 +27,7 @@ export default function Form() {
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
-                                isoCode: e.target.value,
+                                iso: e.target.value,
                             }))
                         }
                     />
@@ -42,7 +42,7 @@ export default function Form() {
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
-                                yearsOfExperience: parseInt(e.target.value),
+                                yoe: parseInt(e.target.value),
                             }))
                         }
                     />
@@ -71,7 +71,7 @@ export default function Form() {
                         onChange={(e) =>
                             setFormData((prevFormData) => ({
                                 ...prevFormData,
-                                techUsageGrade: parseInt(e.target.value),
+                                grade: parseInt(e.target.value),
                             }))
                         }
                     />
