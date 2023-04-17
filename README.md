@@ -27,4 +27,6 @@ The build command (via CLI) is massive because of all the compile time dependenc
 
 This will launch the API and the UI and print out the location in the logs. Once done, you should see this in the browser window:
 
-<img src="https://imgur.com/JWMHpVy"/>
+![image](https://user-images.githubusercontent.com/16950123/232413750-d068aea9-185a-4041-94ef-bcc3b84b5ac2.png)
+
+Loom video to follow!
